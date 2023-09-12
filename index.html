@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nisses portfolio</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" 
+        integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+        
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900Source+Sans+Pro:300,900&display=swap" 
+        rel="stylesheet">
+
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+    <body>
+            <header>
+                <button class="nav-toggle" aria-label="toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                        <li class="nav__item"><a href="#services" class="nav__link">My Services</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">About me</a></li>
+                        <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
+                        <li class="nav__item"><a href="#projects" class="nav__link">Contact me</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Introduction -->
+            <section class="intro" id="home">
+                <h1 class="section__title section__title--intro">
+                    Hi, I am <strong>Nisse Lindqvist</strong>
+                </h1>
+                <p class="section__subtitle section__subtitle--intro">front-end dev</p>
+                <img src="/imgs/nisse1.png" alt="a picture of nisse lindqvist" class="intro__img">
+            </section>
+            
+            <!-- My services -->
+            <section class="my-services" id="services">
+                <h2 class="section__title section__title--services">What i do</h2>
+                <div class="services">
+                    <div class="service"> 
+                        <h3>Front-end Development</h3>
+                        <p>I started this journey two years ago by enrolling in KYH Stockholms program front-end
+                            development. Since then its been a fun journey learning so much new things.
+                        </p>
+                    </div>
+                </div>
+                <div class="services">
+                    <div class="service">
+                        <h3>Javascript</h3>
+                        <p>Javascript has been my main focus during my time at KYH and now im looking for the next step
+                            to become a fully fledged front-end developer.
+                        </p>
+                    </div>
+                </div>
+                <div class="services">
+                    <div class="service">
+                        <h3>React</h3>
+                        <p>React is the latest technology that i have learned and while theres still a bit to go the basics are down</p>
+                    </div> 
+                </div> <!-- / service -->
+
+                <a href="#projects" class="btn">My projects</a>
+            </section>
+
+            <!-- About me -->
+            <section class="about-me" id="about">
+                <h2 class="section__title section__title--about">Who I am</h2>
+                <p class="section__subtitle section__subtitle--about">Front-end developer based in stockholm</p>
+                
+                <div class="about-me__body">
+                    <p>I started playing with computers when i was 10 years old. Since then i have
+                        been working with and around computers for all my life. I started with media
+                        and communications, then switched to front-end development 2 years ago.
+                    </p>
+                    <p>Looking forward to learning even more about front-end development and making a career for 
+                        myself in this business.
+                    </p>
+                </div>
+
+                <img src="/imgs/nisse2.png" alt="nisse throwing a ping pong ball" class="about-me__img"/>
+            </section>
+
+            <!-- Projects -->
+            <section class="my-work" id="projects">
+                <h2 class="section__title section__title--work">Projects</h2>
+                <p class="section__subtitle section__subtitle--work">A selection of my projects</p>
+
+                <div class="portfolio">
+                    <!-- Portfolio item 01 -->
+                    <a href="portfolio-item.html" class="portfolio__item">
+                        <img src="imgs/project-management.png" alt="" class="portfolio__img">
+                    </a>
+                    
+                    <!-- Portfolio item 02 -->
+                    <a href="portfolio-item2.html" class="portfolio__item">
+                        <img src="imgs/mymoney.png" alt="" class="portfolio__img">
+                    </a>
+                    
+                    <!-- Portfolio item 03 -->
+                    <a href="portfolio-item3.html" class="portfolio__item">
+                        <img src="imgs/colorschemegenerator.png" alt="" class="portfolio__img">
+                    </a>
+
+                    <!-- Portfolio item 04 -->
+                    <a href="portfolio-item4.html" class="portfolio__item">
+                        <img src="imgs/cardgameofwarpreview.png" alt="" class="portfolio__img">
+                    </a>
+                    <!-- Portfolio item 05 -->
+                    <a href="portfolio-item5.html" class="portfolio__item">
+                        <img src="imgs/moviewatchlist.png" alt="" class="portfolio__img">
+                    </a>
+                    <!-- Portfolio item 06 -->
+                    <a href="portfolio-item6.html" class="portfolio__item">
+                        <img src="imgs/moviepitch.png" alt="" class="portfolio__img">
+                    </a>
+
+                </div>
+            </section>
+
+            <!--Footer --> 
+            <footer class="footer">
+                <form id="my-form" action="https://formspree.io/f/mknyyjbp" method="POST">      
+                    <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+                    <input name="email" type="text" class="feedback-input" placeholder="Email" />
+                    <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+                    <button class="btn-form" id="my-form-button">Submit</button>
+                    <p id="my-form-status"></p>
+                  </form>
+                <a href="mailto:nisselindqvist@hotmail.com" class="footer__link">nisselindqvist@hotmail.com</a>
+                <ul class="social-list">
+                    <li class="social-list__item">
+                        <a class="social-list__link" href="https://www.linkedin.com/in/nisse-lindqvist-885781221/">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </li>
+                    <li class="social-list__item">
+                        <a class="social-list__link" href="https://github.com/kavorca92">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+                </ul>
+            </footer>
+
+            <script src="js/index.js"></script>
+            
+    </body>
+</html>
