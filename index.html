@@ -17,31 +17,31 @@
     </head>
     <body>
             <header>
-                <button class="nav-toggle" aria-label="toggle navigation">
+                <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-controls="site-navigation" aria-expanded="false">
                     <span class="hamburger"></span>
                 </button>
-                <nav class="nav">
+                <nav class="nav" id="site-navigation" inert>
                     <ul class="nav__list">
                         <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
                         <li class="nav__item"><a href="#services" class="nav__link">My Services</a></li>
                         <li class="nav__item"><a href="#about" class="nav__link">About me</a></li>
                         <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
-                        <li class="nav__item"><a href="#projects" class="nav__link">Contact me</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact me</a></li>
                     </ul>
                 </nav>
             </header>
 
             <!-- Introduction -->
-            <section class="intro" id="home">
+            <section class="intro" id="home" tabindex="-1">
                 <h1 class="section__title section__title--intro">
                     Hi, I am <strong>Nisse Lindqvist</strong>
                 </h1>
                 <p class="section__subtitle section__subtitle--intro">front-end dev</p>
-                <img src="/imgs/nisse1.png" alt="a picture of nisse lindqvist" class="intro__img">
+                <img src="imgs/nisse1.png" alt="a picture of nisse lindqvist" class="intro__img">
             </section>
             
             <!-- My services -->
-            <section class="my-services" id="services">
+            <section class="my-services" id="services" tabindex="-1">
                 <h2 class="section__title section__title--services">What i do</h2>
                 <div class="services">
                     <div class="service"> 
@@ -70,7 +70,7 @@
             </section>
 
             <!-- About me -->
-            <section class="about-me" id="about">
+            <section class="about-me" id="about" tabindex="-1">
                 <h2 class="section__title section__title--about">Who I am</h2>
                 <p class="section__subtitle section__subtitle--about">Front-end developer based in stockholm</p>
                 
@@ -84,65 +84,97 @@
                     </p>
                 </div>
 
-                <img src="/imgs/nisse2.png" alt="nisse throwing a ping pong ball" class="about-me__img"/>
+                <img src="imgs/nisse2.png" alt="nisse throwing a ping pong ball" class="about-me__img"/>
             </section>
 
             <!-- Projects -->
-            <section class="my-work" id="projects">
+            <section class="my-work" id="projects" tabindex="-1">
                 <h2 class="section__title section__title--work">Projects</h2>
                 <p class="section__subtitle section__subtitle--work">A selection of my projects</p>
 
                 <div class="portfolio">
-                    <!-- Portfolio item 01 -->
                     <a href="portfolio-item.html" class="portfolio__item">
-                        <img src="imgs/project-management.png" alt="" class="portfolio__img">
+                        <span class="portfolio__preview">
+                            <img src="imgs/project-management.png" alt="" class="portfolio__img" loading="lazy" decoding="async">
+                        </span>
+                        <span class="portfolio__caption">
+                            <span>Project Management</span>
+                            <span class="portfolio__arrow" aria-hidden="true">→</span>
+                        </span>
                     </a>
-                    
-                    <!-- Portfolio item 02 -->
+
                     <a href="portfolio-item2.html" class="portfolio__item">
-                        <img src="imgs/mymoney.png" alt="" class="portfolio__img">
+                        <span class="portfolio__preview">
+                            <img src="imgs/mymoney.png" alt="" class="portfolio__img" loading="lazy" decoding="async">
+                        </span>
+                        <span class="portfolio__caption">
+                            <span>Simple budget tracker</span>
+                            <span class="portfolio__arrow" aria-hidden="true">→</span>
+                        </span>
                     </a>
-                    
-                    <!-- Portfolio item 03 -->
+
                     <a href="portfolio-item3.html" class="portfolio__item">
-                        <img src="imgs/colorschemegenerator.png" alt="" class="portfolio__img">
+                        <span class="portfolio__preview">
+                            <img src="imgs/colorschemegenerator.png" alt="" class="portfolio__img" loading="lazy" decoding="async">
+                        </span>
+                        <span class="portfolio__caption">
+                            <span>Color Scheme Generator</span>
+                            <span class="portfolio__arrow" aria-hidden="true">→</span>
+                        </span>
                     </a>
 
-                    <!-- Portfolio item 04 -->
                     <a href="portfolio-item4.html" class="portfolio__item">
-                        <img src="imgs/cardgameofwarpreview.png" alt="" class="portfolio__img">
+                        <span class="portfolio__preview">
+                            <img src="imgs/cardgameofwarpreview.png" alt="" class="portfolio__img" loading="lazy" decoding="async">
+                        </span>
+                        <span class="portfolio__caption">
+                            <span>Card Game of War</span>
+                            <span class="portfolio__arrow" aria-hidden="true">→</span>
+                        </span>
                     </a>
-                    <!-- Portfolio item 05 -->
                     <a href="portfolio-item5.html" class="portfolio__item">
-                        <img src="imgs/moviewatchlist.png" alt="" class="portfolio__img">
+                        <span class="portfolio__preview">
+                            <img src="imgs/moviewatchlist.png" alt="" class="portfolio__img" loading="lazy" decoding="async">
+                        </span>
+                        <span class="portfolio__caption">
+                            <span>Movie Watchlist</span>
+                            <span class="portfolio__arrow" aria-hidden="true">→</span>
+                        </span>
                     </a>
-                    <!-- Portfolio item 06 -->
                     <a href="portfolio-item6.html" class="portfolio__item">
-                        <img src="imgs/moviepitch.png" alt="" class="portfolio__img">
+                        <span class="portfolio__preview">
+                            <img src="imgs/moviepitch.png" alt="" class="portfolio__img" loading="lazy" decoding="async">
+                        </span>
+                        <span class="portfolio__caption">
+                            <span>AI Movie Pitch</span>
+                            <span class="portfolio__arrow" aria-hidden="true">→</span>
+                        </span>
                     </a>
-
                 </div>
             </section>
 
             <!--Footer --> 
-            <footer class="footer">
-                <form id="my-form" action="https://formspree.io/f/mknyyjbp" method="POST">      
-                    <input name="name" type="text" class="feedback-input" placeholder="Name" />   
-                    <input name="email" type="text" class="feedback-input" placeholder="Email" />
-                    <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
-                    <button class="btn-form" id="my-form-button">Submit</button>
-                    <p id="my-form-status"></p>
-                  </form>
+            <footer class="footer" id="contact" tabindex="-1">
+                <form id="my-form" action="https://formspree.io/f/mknyyjbp" method="POST">
+                    <label for="contact-name">Name</label>
+                    <input id="contact-name" name="name" type="text" class="feedback-input" autocomplete="name">
+                    <label for="contact-email">Email</label>
+                    <input id="contact-email" name="email" type="email" class="feedback-input" autocomplete="email">
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" name="text" class="feedback-input"></textarea>
+                    <button type="submit" class="btn-form" id="my-form-button">Submit</button>
+                    <p id="my-form-status" role="status"></p>
+                </form>
                 <a href="mailto:nisselindqvist@hotmail.com" class="footer__link">nisselindqvist@hotmail.com</a>
                 <ul class="social-list">
                     <li class="social-list__item">
-                        <a class="social-list__link" href="https://www.linkedin.com/in/nisse-lindqvist-885781221/">
-                            <i class="fab fa-linkedin"></i>
+                        <a class="social-list__link" aria-label="LinkedIn" href="https://www.linkedin.com/in/nisse-lindqvist-885781221/">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
                         </a>
                     </li>
                     <li class="social-list__item">
-                        <a class="social-list__link" href="https://github.com/kavorca92">
-                            <i class="fab fa-github"></i>
+                        <a class="social-list__link" aria-label="GitHub" href="https://github.com/kavorca92">
+                            <i class="fab fa-github" aria-hidden="true"></i>
                         </a>
                     </li>
                 </ul>

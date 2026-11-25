@@ -1,46 +1,76 @@
 const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelectorAll('.nav__link');
+const navigation = document.getElementById('site-navigation');
 
-navToggle.addEventListener('click', () => {
-    document.body.classList.toggle('nav-open');
-});
-
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        document.body.classList.remove('nav-open');
-    })
-})
-
-
-//** form */
-
-var form = document.getElementById("my-form");
-    
-    async function handleSubmit(event) {
-      event.preventDefault();
-      var status = document.getElementById("my-form-status");
-      var data = new FormData(event.target);
-      fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
+if (navToggle && navigation) {
+    function setNavigationOpen(open) {
+        if (!open && navigation.contains(document.activeElement)) {
+            navToggle.focus({ preventScroll: true });
         }
-      }).then(response => {
-        if (response.ok) {
-          status.innerHTML = "Thanks for your message!";
-          form.reset()
-        } else {
-          response.json().then(data => {
-            if (Object.hasOwn(data, 'errors')) {
-              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-            } else {
-              status.innerHTML = "Oops! There was a problem submitting your form"
-            }
-          })
-        }
-      }).catch(error => {
-        status.innerHTML = "Oops! There was a problem submitting your form"
-      });
+        navigation.toggleAttribute('inert', !open);
+        navToggle.setAttribute('aria-expanded', String(open));
+        document.body.classList.toggle('nav-open', open);
     }
-    form.addEventListener("submit", handleSubmit)
+
+    navToggle.addEventListener('click', () => {
+        setNavigationOpen(navigation.hasAttribute('inert'));
+    });
+
+    navigation.addEventListener('click', event => {
+        const link = event.target.closest('.nav__link');
+        if (!link) return;
+
+        const href = link.getAttribute('href');
+        if (href.startsWith('#')) {
+            document.getElementById(href.slice(1))?.focus({ preventScroll: true });
+        }
+        setNavigationOpen(false);
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && !navigation.hasAttribute('inert')) setNavigationOpen(false);
+    });
+
+    document.addEventListener('focusin', event => {
+        if (!navigation.hasAttribute('inert') && event.target !== navToggle && !navigation.contains(event.target)) {
+            setNavigationOpen(false);
+        }
+    });
+}
+
+const form = document.getElementById('my-form');
+if (form) {
+    const status = document.getElementById('my-form-status');
+    const submitButton = document.getElementById('my-form-button');
+    const failureMessage = 'Could not send your message. Please try again.';
+
+    form.addEventListener('submit', async event => {
+        event.preventDefault();
+        if (submitButton.disabled) return;
+
+        submitButton.disabled = true;
+        status.textContent = 'Sending your message…';
+
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: { Accept: 'application/json' }
+            });
+
+            if (response.ok) {
+                form.reset();
+                status.textContent = 'Thanks for your message!';
+            } else {
+                const data = await response.json();
+                const messages = Array.isArray(data?.errors)
+                    ? data.errors.map(error => error?.message).filter(message => typeof message === 'string' && message.trim())
+                    : [];
+                status.textContent = messages.join(', ') || failureMessage;
+            }
+        } catch {
+            status.textContent = failureMessage;
+        } finally {
+            submitButton.disabled = false;
+        }
+    });
+}
